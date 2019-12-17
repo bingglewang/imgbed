@@ -15,7 +15,6 @@ import java.util.List;
 
 /**
  * @Description: 阿里云oss对象存储工具类
- * @Time: 2019年1月8日11:02:08
  */
 public class AliOSSUtil {
 

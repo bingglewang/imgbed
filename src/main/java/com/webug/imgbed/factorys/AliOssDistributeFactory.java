@@ -13,12 +13,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Description 阿里云oss图片分发
- * @time 2019年1月21日14:04:55
- * @author ahao
- */
-
 @Component
 public class AliOssDistributeFactory extends DistributeFactory {
 

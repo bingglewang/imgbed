@@ -7,8 +7,6 @@ import java.util.List;
 
 /**
  * @Description 图片分发工厂
- * @time 2019年1月18日10:25:32
- * @author ahao
  */
 public abstract class DistributeFactory {
 

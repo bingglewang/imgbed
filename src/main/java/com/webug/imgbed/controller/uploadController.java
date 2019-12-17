@@ -2,7 +2,6 @@ package com.webug.imgbed.controller;
 
 import com.webug.imgbed.common.RspEntity;
 import com.webug.imgbed.factorys.AliOssDistributeFactory;
-import com.webug.imgbed.factorys.SinaDistributeFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +25,6 @@ import java.util.Map;
 public class uploadController {
 
     private static final Logger logger = LoggerFactory.getLogger(uploadController.class);
-
-    @Autowired
-    private SinaDistributeFactory sinaDistributeFactory;
 
     @Autowired
     private AliOssDistributeFactory aliOssDistributeFactory;
@@ -76,7 +72,7 @@ public class uploadController {
             }
             DecimalFormat df = new DecimalFormat("#.00");
             String fileSize = df.format(file.getSize() / 1024 / 1024) + "MB";
-            if(file.getSize() > (long)(2 * 1024 * 1024)){
+            if(file.getSize() > (long)(10 * 1024 * 1024)){
                 logger.error("上传图片大小超过限制:" + fileSize);
                 rspEntity.setRspCode("999");
                 rspEntity.setRspMsg("上传图片大小超过限制:" + fileSize);
@@ -91,16 +87,12 @@ public class uploadController {
             }
         }
         logger.error("所有校验通过，开始进行图片分发...");
-        // 新浪分发
-        List<String> sinaPathList = sinaDistributeFactory.imgDistribute(files);
-
         // 阿里OSS分发
         List<String> aliOssPathList = aliOssDistributeFactory.imgDistribute(files);
 
         session.setAttribute(session.getId(),fileNameList);
-        if(sinaPathList.size() > 0 || aliOssPathList.size() > 0){
+        if(aliOssPathList.size() > 0){
             Map<String, Object> data = new HashMap<>();
-            data.put("sinaPathList",sinaPathList);
             data.put("aliOssPathList",aliOssPathList);
             Map<String, Object> rspData = new HashMap<String, Object>();
             rspData.put("data",data);

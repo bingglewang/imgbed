@@ -27,9 +27,9 @@ public class AliOssDistributeFactory extends DistributeFactory {
     //文件存储目录
     private static final String FILE_DIR = "imgBed/";
     // bucket名称
-    private static final String BUCKET_NAME = "webug";
+    private static final String BUCKET_NAME = "binggle";
     // 外网访问http头
-    private static final String HTTP_PATH = "https://webug.oss-cn-beijing.aliyuncs.com/";
+    private static final String HTTP_PATH = "http://www.yojo.wang/";
 
     private static final String FILE_EXTENSION = ".png";
 

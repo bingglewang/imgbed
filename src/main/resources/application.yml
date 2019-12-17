@@ -31,11 +31,6 @@ upload:
 # 阿里云基本配置
 aliyun:
   config:
-    ossEndPoint: ***
-    accessKeyId: ***
-    accessKeySecret: ***
-
-# 新浪账号配置
-sina:
-  username: ***
-  password: ***
+    ossEndPoint: oss-cn-beijing.aliyuncs.com
+    accessKeyId: LTAIdOmmjGbgGyZL
+    accessKeySecret: 9TIxKNHKUKgnnSDNQWNDykCiqeNltf
